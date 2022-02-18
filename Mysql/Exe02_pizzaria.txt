@@ -1,0 +1,48 @@
+create database db_pizzaria_legal;
+use db_pizzaria_legal;
+
+create table tb_categoria(
+	id bigint auto_increment,
+    sabor varchar(255),
+    preco varchar(255),
+    tamanho varchar (255),
+    
+    primary key (id)
+);
+
+insert into tb_categoria(sabor, preco, tamanho)
+values("queijo", "50", "grande"), ("calabresa", "35", "grande"),
+("mussarela", "45", "grande"), ("vegetariana", "55", "media"), ("chocolate", "40", "pequena");
+
+select * from tb_categoria;
+
+create table tb_pizza(
+	id bigint auto_increment,
+    tipo varchar(255),
+    qtd int,
+    forno varchar(255),
+    carvao varchar(255),
+    congelada varchar(255),
+    
+    primary key (id),
+    foreign key (sabor) references tb_categoria(id)
+);
+
+select * from tb_pizza;
+
+insert into tb_pizza (tipo, qtd, forno, carvao, congelada)
+value ("quente", 1, "sim", "nao", "nao"), ("fria", 1, "nao", "sim", "nao"), 
+("quente", 1, "sim", "nao", "nao"), ("fria", 1, "nao", "sim", "nao"), 
+("quente", 1, "sim", "nao", "nao"), ("fria", 1, "nao", "sim", "nao");
+
+/*delete from tb_personagem where id=3;*/
+
+/*delete from tb_personagem where id in (4, 5)*/
+
+select * from tb_pizza where preco > 45;
+select * from tb_pizza where preco >= 29 and preco < 60;
+select * from tb_pizza where nome like "%c%";
+
+select * from tb_pizza inner join tb_categoria;
+
+select * from tb_pizza where atd > 1;
