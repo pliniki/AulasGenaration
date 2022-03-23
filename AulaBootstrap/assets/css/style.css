@@ -1,3 +1,6 @@
-/*.nav-bg {
+.nav-bg {
   background-color: rgb(156, 216, 216) !important;
-}*/
+}
+.general-bg {
+  background-color: rgb(223, 229, 235);
+}
